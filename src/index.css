@@ -78,6 +78,8 @@ html {
   scroll-padding-top: var(--navbar-height);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -85,7 +87,8 @@ body {
   background-color: #0E1013;
   color: #E6E8EC;
   line-height: 1.68;
-  overflow-x: clip;
+  overflow-x: hidden;
+  width: 100%;
   min-height: 100vh;
 }
 
