@@ -1128,18 +1128,6 @@ export default function App() {
               <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
             </div>
 
-            {/* Mobile Stage Portrait — Crisp, prominent photo of Mr. Prashant Bachhav on mobile */}
-            <div className="hero-mobile-portrait-wrapper" aria-label="Portrait of Mr. Prashant Ashok Bachhav">
-              <div className="hero-mobile-portrait-frame">
-                <img
-                  src="/hero-bg.png"
-                  alt="Mr. Prashant Ashok Bachhav — Director, Aarya Innovtech Pvt. Ltd."
-                  className="hero-mobile-portrait-img"
-                  loading="eager"
-                />
-              </div>
-            </div>
-
             {/* Professional tagline */}
             <p className="hero-tagline">
               “Building Institutions. Engineering Innovation.”

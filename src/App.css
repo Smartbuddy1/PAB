@@ -4732,12 +4732,12 @@
     height: auto !important;
     max-height: none !important;
     padding: 36px 16px 50px 16px !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     position: relative;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Hero Background on Mobile: Elegant ambient backdrop */
@@ -4759,30 +4759,26 @@
     top: 0;
     bottom: 0;
     right: 0;
-    width: 100%;
+    width: 68%;
     background-image: url('/hero-bg.png');
     background-repeat: no-repeat;
-    background-position: 85% 15% !important;
+    background-position: 80% 12% !important;
     background-size: cover !important;
-    filter: brightness(1.12) contrast(1.1) saturate(1.06) !important;
+    filter: brightness(1.15) contrast(1.1) saturate(1.08) !important;
     opacity: 1 !important;
     transform: none !important;
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
-      transparent 18%,
-      rgba(0, 0, 0, 0.45) 45%,
-      rgba(0, 0, 0, 0.85) 65%,
-      black 80%,
+      rgba(0, 0, 0, 0.4) 25%,
+      black 60%,
       black 100%
     ) !important;
     mask-image: linear-gradient(
       to right,
       transparent 0%,
-      transparent 18%,
-      rgba(0, 0, 0, 0.45) 45%,
-      rgba(0, 0, 0, 0.85) 65%,
-      black 80%,
+      rgba(0, 0, 0, 0.4) 25%,
+      black 60%,
       black 100%
     ) !important;
     z-index: 1 !important;
@@ -4797,8 +4793,8 @@
       to right,
       rgba(14, 16, 19, 0.96) 0%,
       rgba(14, 16, 19, 0.90) 38%,
-      rgba(14, 16, 19, 0.60) 62%,
-      rgba(14, 16, 19, 0.15) 82%,
+      rgba(14, 16, 19, 0.50) 62%,
+      rgba(14, 16, 19, 0.10) 82%,
       transparent 100%
     ) !important;
     z-index: 2 !important;
@@ -4816,15 +4812,24 @@
     position: relative;
   }
 
-  /* Text Column Constrained to Left 70-75% — Photo on Right Remains Unobstructed */
+  /* Full 100% width on Mobile - zero squeezed text */
   .hero-text-column {
     width: 100% !important;
-    max-width: clamp(270px, 72vw, 420px) !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     z-index: 4;
+  }
+
+  /* Text Elements Constrained to Left ~65% so Right-Side Photo Remains Clearly Visible */
+  .hero-main-heading,
+  .hero-intro-label,
+  .hero-tagline,
+  .hero-introduction {
+    max-width: clamp(240px, 66vw, 360px) !important;
   }
 
   /* Full Name Heading — Bold, Regal & Responsive */
