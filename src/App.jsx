@@ -1144,38 +1144,23 @@ export default function App() {
         <div className="hero-container">
           {/* Executive Information Column */}
           <div className="hero-text-column">
-            {/* Top Row: On Mobile, Headline Group on Left and Photo Card on Right */}
-            <div className="hero-mobile-top-row">
-              <div className="hero-mobile-headline-group">
-                {/* Main heading */}
-                <h1 className="hero-main-heading">
-                  Mr. Prashant Ashok Bachhav
-                </h1>
+            {/* Main heading */}
+            <h1 className="hero-main-heading">
+              Mr. Prashant Ashok Bachhav
+            </h1>
 
-                {/* Introductory label below name */}
-                <div className="hero-intro-label">
-                  <span className="label-emblem">✦</span>
-                  <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
-                </div>
-
-                {/* Professional tagline */}
-                <p className="hero-tagline">
-                  “Building Institutions. Engineering Innovation.”
-                </p>
-              </div>
-
-              {/* Mobile Right Stage Photo Card (Visible on mobile on the right side) */}
-              <div className="hero-mobile-right-photo-card" aria-label="Mr. Prashant Ashok Bachhav">
-                <img
-                  src="/hero-bg.png"
-                  alt="Mr. Prashant Ashok Bachhav speaking at ICMAI on stage"
-                  className="hero-mobile-right-photo-img"
-                  loading="eager"
-                />
-              </div>
+            {/* Introductory label below name */}
+            <div className="hero-intro-label">
+              <span className="label-emblem">✦</span>
+              <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
             </div>
 
-            {/* Introduction paragraph (Below photo, covering all space) */}
+            {/* Professional tagline */}
+            <p className="hero-tagline">
+              “Building Institutions. Engineering Innovation.”
+            </p>
+
+            {/* Introduction paragraph */}
             <p className="hero-introduction">
               Mr. Prashant Ashok Bachhav is the Director of Aarya Innovtech Pvt. Ltd., Nashik. His professional background includes institutional leadership, innovative product design, research and development, sales and marketing, and overall company operations.
             </p>
