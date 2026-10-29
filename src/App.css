@@ -686,12 +686,14 @@
   max-width: 660px;
 }
 
-/* Mobile Photo Slide, Swipe Hint, and Quick Nav Actions — Hidden on Desktop */
-.hero-mobile-photo-slide,
-.hero-mobile-swipe-hint,
-.photo-return-hint,
+/* Mobile Photo Card and Quick Nav Actions — Hidden on Desktop */
+.hero-mobile-right-photo-card,
 .mobile-nav-quick-actions {
   display: none;
+}
+
+.hero-mobile-top-row {
+  display: contents;
 }
 
 .hero-intro-label {
@@ -4798,40 +4800,33 @@
   }
 
   /* =========================================================================
-     HERO SECTION ON MOBILE — HORIZONTAL SWIPEABLE FULL-SCREEN EXPERIENCE
+     HERO SECTION ON MOBILE — UNIFIED VERTICAL FLOW (PHOTO ON RIGHT, INFO BELOW)
      ========================================================================= */
   .hero-section.hero-with-bg {
-    min-height: calc(100vh - var(--navbar-height));
+    min-height: auto !important;
     height: auto !important;
     max-height: none !important;
-    padding: 0 !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    touch-action: pan-x pan-y !important;
-    position: relative;
-    box-sizing: border-box;
-    display: flex;
-    align-items: stretch;
+    padding: 20px 14px 30px 14px !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: stretch !important;
   }
 
-  .hero-section.hero-with-bg::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  /* Full Screen Hero Photo Background on Slide 1 */
+  /* Full Screen Hero Photo Ambient Glow on Mobile */
   .hero-section.hero-with-bg::before {
     content: '' !important;
     position: absolute !important;
     inset: 0 !important;
     background-image: url('/hero-bg.png') !important;
     background-repeat: no-repeat !important;
-    background-position: 70% top !important;
+    background-position: center top !important;
     background-size: cover !important;
-    filter: brightness(0.70) contrast(1.05) saturate(1.05) !important;
-    opacity: 1 !important;
-    transform: none !important;
+    filter: blur(20px) brightness(0.35) saturate(1.1) !important;
+    opacity: 0.65 !important;
+    transform: scale(1.08) !important;
     z-index: 0 !important;
   }
 
@@ -4839,89 +4834,104 @@
     display: none !important;
   }
 
-  /* Slide 1 Left-to-Right Dark Gradient Overlay for Razor-Sharp Text Readability */
+  /* Mobile Dark Atmospheric Overlay */
   .hero-bg-overlay {
     position: absolute !important;
     inset: 0 !important;
-    background: linear-gradient(
-      to right,
-      rgba(14, 16, 19, 0.95) 0%,
-      rgba(14, 16, 19, 0.88) 45%,
-      rgba(14, 16, 19, 0.60) 70%,
-      rgba(14, 16, 19, 0.35) 100%
+    background: radial-gradient(
+      ellipse at 75% 20%,
+      rgba(14, 16, 19, 0.75) 0%,
+      rgba(14, 16, 19, 0.95) 70%,
+      #0E1013 100%
     ) !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
 
-  /* 2-Slide Horizontal Flex Container (Slide 1: Text, Slide 2: Full Photo) */
+  /* Mobile Hero Container (Normal 100% width, no slider) */
   .hero-container {
     padding: 0 !important;
-    width: 200vw !important;
-    min-width: 200vw !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    z-index: 3 !important;
+    position: relative !important;
+  }
+
+  /* Mobile Hero Text Column */
+  .hero-text-column {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+    z-index: 4 !important;
+  }
+
+  /* Mobile Top Row: Left Headline Group + Right Stage Photo Card */
+  .hero-mobile-top-row {
     display: flex !important;
     flex-direction: row !important;
     align-items: stretch !important;
-    z-index: 3;
-    position: relative;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 14px !important;
   }
 
-  /* Slide 1: Executive Info & Highlights */
-  .hero-text-column {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    flex-shrink: 0 !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 24px 16px 32px 16px !important;
-    box-sizing: border-box !important;
-    z-index: 4;
+  .hero-mobile-headline-group {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: left !important;
   }
 
-  /* Full Name Heading — STRICT SINGLE LINE SEQUENCE */
+  /* Full Name Heading */
   .hero-main-heading {
-    white-space: nowrap !important;
-    font-size: clamp(1.10rem, 4.8vw, 1.55rem) !important;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    text-align: left;
-    margin-bottom: 8px;
+    white-space: normal !important;
+    font-size: clamp(1.12rem, 4.8vw, 1.40rem) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.01em !important;
+    text-align: left !important;
+    margin-bottom: 6px !important;
     max-width: 100% !important;
-    color: #FFFFFF;
-    font-weight: 750;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
   }
 
-  /* Badge — STRICT SINGLE LINE SEQUENCE */
+  /* Badge — Compact on Mobile */
   .hero-intro-label {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    padding: 4px 10px !important;
-    margin-bottom: 10px !important;
-    align-self: flex-start;
+    gap: 4px !important;
+    padding: 3px 8px !important;
+    margin-bottom: 6px !important;
+    align-self: flex-start !important;
     background: rgba(212, 163, 115, 0.22) !important;
     border: 1px solid var(--color-sand) !important;
     border-radius: 20px !important;
     white-space: nowrap !important;
     max-width: 100% !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
   }
 
   .label-emblem {
-    font-size: 0.70rem;
-    color: var(--color-sand);
+    font-size: 0.65rem !important;
+    color: var(--color-sand) !important;
   }
 
   .label-text {
-    font-size: clamp(0.58rem, 2.1vw, 0.70rem) !important;
-    letter-spacing: 0.06em !important;
+    font-size: clamp(0.52rem, 1.9vw, 0.64rem) !important;
+    letter-spacing: 0.04em !important;
     font-weight: 700 !important;
     color: var(--color-sand-light) !important;
     white-space: nowrap !important;
@@ -4929,25 +4939,51 @@
 
   .hero-tagline {
     font-family: var(--font-heading) !important;
-    font-size: clamp(0.90rem, 3.1vw, 1.05rem) !important;
+    font-size: clamp(0.72rem, 2.5vw, 0.84rem) !important;
     color: var(--color-sand) !important;
-    margin-bottom: 8px !important;
-    line-height: 1.35 !important;
-    text-align: left;
+    margin-bottom: 0 !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
     max-width: 100% !important;
-    font-style: italic;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    font-style: italic !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
   }
 
+  /* Right Side Executive Stage Photo Card on Mobile */
+  .hero-mobile-right-photo-card {
+    display: flex !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 130px !important;
+    height: 154px !important;
+    border-radius: 12px !important;
+    border: 1.5px solid var(--color-sand) !important;
+    background: #0E1013 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 10px rgba(212, 163, 115, 0.25) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-mobile-right-photo-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 42% 25% !important;
+    display: block !important;
+    filter: brightness(1.05) contrast(1.08) !important;
+  }
+
+  /* Authority Introduction Paragraph (Below photo, covering all space) */
   .hero-introduction {
-    font-family: var(--font-sans);
-    font-size: clamp(0.76rem, 2.3vw, 0.84rem) !important;
-    line-height: 1.48;
-    color: #CBD5E1;
-    margin-bottom: 14px;
-    text-align: left;
+    font-family: var(--font-sans) !important;
+    font-size: clamp(0.76rem, 2.3vw, 0.82rem) !important;
+    line-height: 1.48 !important;
+    color: #CBD5E1 !important;
+    margin: 0 0 12px 0 !important;
+    text-align: left !important;
     max-width: 100% !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
   }
 
   /* Highlight Cards: Compact 2x2 Grid (2 on top, 2 below) */
@@ -5018,98 +5054,6 @@
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-  }
-
-  /* Slide 2: Full-Screen Stage Photo (Revealed when scrolling/swiping right on mobile) */
-  .hero-mobile-photo-slide {
-    display: flex !important;
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: 100vw !important;
-    height: 100% !important;
-    min-height: calc(100vh - var(--navbar-height)) !important;
-    flex-shrink: 0 !important;
-    scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
-    position: relative !important;
-    background: #0E1013 !important;
-    overflow: hidden !important;
-    cursor: pointer !important;
-  }
-
-  .hero-mobile-fullscreen-photo {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: 42% 25% !important;
-    display: block !important;
-    filter: brightness(1.02) contrast(1.05) !important;
-    transition: all 0.3s ease !important;
-  }
-
-  .hero-mobile-photo-slide.photo-fit-contain .hero-mobile-fullscreen-photo {
-    object-fit: contain !important;
-    object-position: center center !important;
-    background: #0E1013 !important;
-  }
-
-  .photo-caption-pill {
-    position: absolute !important;
-    bottom: 24px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: rgba(14, 16, 19, 0.88) !important;
-    border: 1px solid var(--color-sand) !important;
-    border-radius: 20px !important;
-    padding: 6px 16px !important;
-    color: var(--color-sand-light) !important;
-    font-size: 0.72rem !important;
-    font-weight: 650 !important;
-    white-space: nowrap !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    z-index: 5 !important;
-  }
-
-  .photo-return-hint {
-    position: absolute !important;
-    top: 20px !important;
-    left: 16px !important;
-    background: rgba(14, 16, 19, 0.82) !important;
-    border: 1px solid rgba(212, 163, 115, 0.5) !important;
-    border-radius: 20px !important;
-    padding: 5px 12px !important;
-    color: var(--color-sand) !important;
-    font-size: 0.70rem !important;
-    font-weight: 650 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 4px !important;
-    z-index: 5 !important;
-  }
-
-  .hero-mobile-swipe-hint {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 6px !important;
-    margin-top: 8px !important;
-    color: var(--color-sand) !important;
-    font-size: 0.70rem !important;
-    font-weight: 650 !important;
-    letter-spacing: 0.04em !important;
-    opacity: 0.9 !important;
-    width: 100% !important;
-    animation: pulseSwipe 2s infinite ease-in-out !important;
-  }
-
-  @keyframes pulseSwipe {
-    0%, 100% { transform: translateX(0); opacity: 0.75; }
-    50% { transform: translateX(5px); opacity: 1; }
   }
 
   /* Compact side-by-side touch-friendly CTA buttons */
@@ -5285,9 +5229,33 @@
     line-height: 1.2 !important;
   }
 
+  .hero-mobile-top-row {
+    gap: 8px !important;
+  }
+
+  .hero-mobile-right-photo-card {
+    width: 110px !important;
+    min-width: 110px !important;
+    max-width: 115px !important;
+    height: 142px !important;
+  }
+
   .hero-main-heading {
-    white-space: nowrap !important;
-    font-size: clamp(1.05rem, 4.6vw, 1.45rem) !important;
+    white-space: normal !important;
+    font-size: clamp(1.02rem, 4.4vw, 1.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-intro-label {
+    padding: 2px 6px !important;
+  }
+
+  .label-text {
+    font-size: 0.50rem !important;
+  }
+
+  .hero-tagline {
+    font-size: 0.70rem !important;
   }
 
   .hero-cta-group {

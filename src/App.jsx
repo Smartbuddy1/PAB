@@ -1142,25 +1142,40 @@ export default function App() {
         <div className="hero-bg-overlay" aria-hidden="true"></div>
 
         <div className="hero-container">
-          {/* LEFT SIDE — TEXT CONTENT OVERLAID ON IMAGE */}
+          {/* Executive Information Column */}
           <div className="hero-text-column">
-            {/* Main heading */}
-            <h1 className="hero-main-heading">
-              Mr. Prashant Ashok Bachhav
-            </h1>
+            {/* Top Row: On Mobile, Headline Group on Left and Photo Card on Right */}
+            <div className="hero-mobile-top-row">
+              <div className="hero-mobile-headline-group">
+                {/* Main heading */}
+                <h1 className="hero-main-heading">
+                  Mr. Prashant Ashok Bachhav
+                </h1>
 
-            {/* Introductory label below name */}
-            <div className="hero-intro-label">
-              <span className="label-emblem">✦</span>
-              <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
+                {/* Introductory label below name */}
+                <div className="hero-intro-label">
+                  <span className="label-emblem">✦</span>
+                  <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
+                </div>
+
+                {/* Professional tagline */}
+                <p className="hero-tagline">
+                  “Building Institutions. Engineering Innovation.”
+                </p>
+              </div>
+
+              {/* Mobile Right Stage Photo Card (Visible on mobile on the right side) */}
+              <div className="hero-mobile-right-photo-card" aria-label="Mr. Prashant Ashok Bachhav">
+                <img
+                  src="/hero-bg.png"
+                  alt="Mr. Prashant Ashok Bachhav speaking at ICMAI on stage"
+                  className="hero-mobile-right-photo-img"
+                  loading="eager"
+                />
+              </div>
             </div>
 
-            {/* Professional tagline */}
-            <p className="hero-tagline">
-              “Building Institutions. Engineering Innovation.”
-            </p>
-
-            {/* Introduction paragraph */}
+            {/* Introduction paragraph (Below photo, covering all space) */}
             <p className="hero-introduction">
               Mr. Prashant Ashok Bachhav is the Director of Aarya Innovtech Pvt. Ltd., Nashik. His professional background includes institutional leadership, innovative product design, research and development, sales and marketing, and overall company operations.
             </p>
@@ -1204,32 +1219,6 @@ export default function App() {
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 </svg>
               </a>
-            </div>
-
-            {/* Mobile Swipe Hint */}
-            <div className="hero-mobile-swipe-hint" aria-hidden="true">
-              <span>Swipe right for stage photo</span>
-              <span className="swipe-arrow">→</span>
-            </div>
-          </div>
-
-          {/* Slide 2: Full-Screen Stage Photo (Revealed on mobile when swiped/scrolled to the right) */}
-          <div
-            className={`hero-mobile-photo-slide ${isPhotoFit ? 'photo-fit-contain' : ''}`}
-            onClick={() => setIsPhotoFit(!isPhotoFit)}
-            aria-label="Mr. Prashant Ashok Bachhav Stage Photo"
-          >
-            <div className="photo-return-hint" aria-hidden="true">
-              <span>← Swipe left for bio</span>
-            </div>
-            <img
-              src="/hero-bg.png"
-              alt="Mr. Prashant Ashok Bachhav speaking at ICMAI on stage"
-              className="hero-mobile-fullscreen-photo"
-              loading="eager"
-            />
-            <div className="photo-caption-pill">
-              <span>{isPhotoFit ? "Full Stage View • Tap for Portrait" : "Mr. Prashant Ashok Bachhav • Tap for Full Stage"}</span>
             </div>
           </div>
         </div>
