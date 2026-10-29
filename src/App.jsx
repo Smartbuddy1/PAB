@@ -1178,6 +1178,28 @@ export default function App() {
                 </svg>
               </a>
             </div>
+
+            {/* Mobile Swipe Hint */}
+            <div className="hero-mobile-swipe-hint" aria-hidden="true">
+              <span>Swipe right for stage photo</span>
+              <span className="swipe-arrow">→</span>
+            </div>
+          </div>
+
+          {/* Slide 2: Full-Screen Stage Photo (Revealed on mobile when swiped/scrolled to the right) */}
+          <div className="hero-mobile-photo-slide" aria-label="Mr. Prashant Ashok Bachhav Stage Photo">
+            <div className="photo-return-hint" aria-hidden="true">
+              <span>← Swipe left for bio</span>
+            </div>
+            <img
+              src="/hero-bg.png"
+              alt="Mr. Prashant Ashok Bachhav speaking at ICMAI on stage"
+              className="hero-mobile-fullscreen-photo"
+              loading="eager"
+            />
+            <div className="photo-caption-pill">
+              <span>Mr. Prashant Ashok Bachhav • Director, Aarya Innovtech</span>
+            </div>
           </div>
         </div>
       </section>
