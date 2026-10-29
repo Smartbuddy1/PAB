@@ -650,6 +650,7 @@ export default function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [photoError, setPhotoError] = useState(false);
+  const [isPhotoFit, setIsPhotoFit] = useState(false);
 
   // Product Showcase Modal State
   const [activeProductModal, setActiveProductModal] = useState(null);
@@ -947,6 +948,32 @@ export default function App() {
               </a>
             </div>
 
+            {/* Mobile Quick Action Buttons: Phone & Email (Replacing Connect button on mobile) */}
+            <div className="mobile-nav-quick-actions">
+              <a
+                href="tel:+918806796868"
+                className="mobile-quick-btn mobile-quick-phone"
+                aria-label="Call Mr. Prashant Bachhav (+91 8806796868)"
+                title="Call +91 8806796868"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </a>
+
+              <a
+                href="mailto:rnd@theaaryatechnologies.com"
+                className="mobile-quick-btn mobile-quick-email"
+                aria-label="Email Mr. Prashant Bachhav (rnd@theaaryatechnologies.com)"
+                title="Email rnd@theaaryatechnologies.com"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+
             <a
               href="#contact"
               className="navbar-cta-btn"
@@ -1117,25 +1144,29 @@ export default function App() {
         <div className="hero-container">
           {/* LEFT SIDE — TEXT CONTENT OVERLAID ON IMAGE */}
           <div className="hero-text-column">
-            {/* Desktop Elements — 100% Intact */}
-            <h1 className="hero-main-heading hero-desktop-only">
+            {/* Main heading */}
+            <h1 className="hero-main-heading">
               Mr. Prashant Ashok Bachhav
             </h1>
 
-            <div className="hero-intro-label hero-desktop-only">
+            {/* Introductory label below name */}
+            <div className="hero-intro-label">
               <span className="label-emblem">✦</span>
               <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
             </div>
 
-            <p className="hero-tagline hero-desktop-only">
+            {/* Professional tagline */}
+            <p className="hero-tagline">
               “Building Institutions. Engineering Innovation.”
             </p>
 
-            <p className="hero-introduction hero-desktop-only">
+            {/* Introduction paragraph */}
+            <p className="hero-introduction">
               Mr. Prashant Ashok Bachhav is the Director of Aarya Innovtech Pvt. Ltd., Nashik. His professional background includes institutional leadership, innovative product design, research and development, sales and marketing, and overall company operations.
             </p>
 
-            <div className="hero-highlights-grid hero-desktop-only">
+            {/* Professional highlights cards */}
+            <div className="hero-highlights-grid">
               {HERO_HIGHLIGHTS.map((item) => (
                 <div key={item.id} className="highlight-card">
                   <div className="highlight-icon-wrapper">
@@ -1149,7 +1180,8 @@ export default function App() {
               ))}
             </div>
 
-            <div className="hero-cta-group hero-desktop-only">
+            {/* Action Buttons */}
+            <div className="hero-cta-group">
               <a
                 href="#innovation"
                 className="btn-primary-gold"
@@ -1174,81 +1206,30 @@ export default function App() {
               </a>
             </div>
 
-            {/* Mobile View — Modeled Exactly After Reference Design (Kartik Bahadure layout) */}
-            <div className="hero-mobile-view" aria-label="Executive Profile Mobile View">
-              {/* 1. Category / Eyebrow (Warm Coral/Gold) */}
-              <div className="hero-mob-eyebrow">
-                PRASHANT ASHOK BACHHAV • DIRECTOR &amp; INNOVATOR
-              </div>
+            {/* Mobile Swipe Hint */}
+            <div className="hero-mobile-swipe-hint" aria-hidden="true">
+              <span>Swipe right for stage photo</span>
+              <span className="swipe-arrow">→</span>
+            </div>
+          </div>
 
-              {/* 2. Main Headline (Large White) */}
-              <h1 className="hero-mob-headline">
-                Building Institutions. Engineering Innovation.
-              </h1>
-
-              {/* 3. Sub-specialties / Roles (Warm Coral/Gold) */}
-              <div className="hero-mob-roles">
-                DIRECTOR • INNOVATOR • ENTREPRENEUR • ACADEMICIAN
-              </div>
-
-              {/* 4. Bio Paragraph */}
-              <p className="hero-mob-bio">
-                Mr. Prashant Ashok Bachhav is the Director of Aarya Innovtech Pvt. Ltd., Nashik. His professional background includes institutional leadership, innovative product design, research and development, sales and marketing, and overall company operations.
-              </p>
-
-              {/* 5. Touch Action Buttons (Dark Glass Pill Buttons) */}
-              <div className="hero-mob-actions">
-                <a
-                  href="#innovation"
-                  className="mob-pill-btn mob-pill-primary"
-                  onClick={(e) => scrollToSection(e, 'innovation')}
-                >
-                  <span>Explore Innovations</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </a>
-
-                <a
-                  href="#contact"
-                  className="mob-pill-btn mob-pill-secondary"
-                  onClick={(e) => scrollToSection(e, 'contact')}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span>Let's Connect</span>
-                </a>
-              </div>
-
-              {/* 6. Tagline / Domain Ribbon (Warm Coral/Gold) */}
-              <div className="hero-mob-ribbon">
-                INNOVATION • R&amp;D • LEADERSHIP • INSTRUMENTATION • IOT
-              </div>
-
-              {/* 7. Bottom Capsule Highlights Card */}
-              <div className="hero-mob-capsule">
-                <div className="mob-capsule-col">
-                  <span className="mob-capsule-title">ENGINEERING</span>
-                  <span className="mob-capsule-sub">B.E. Instrumentation</span>
-                </div>
-                <div className="mob-capsule-divider"></div>
-                <div className="mob-capsule-col">
-                  <span className="mob-capsule-title">ACADEMIC</span>
-                  <span className="mob-capsule-sub">5+ Yrs Asst. Prof</span>
-                </div>
-                <div className="mob-capsule-divider"></div>
-                <div className="mob-capsule-col">
-                  <span className="mob-capsule-title">LEADERSHIP</span>
-                  <span className="mob-capsule-sub">15+ Yrs Exec. Dir</span>
-                </div>
-                <div className="mob-capsule-divider"></div>
-                <div className="mob-capsule-col">
-                  <span className="mob-capsule-title">AARYA</span>
-                  <span className="mob-capsule-sub">Director (R&amp;D)</span>
-                </div>
-              </div>
+          {/* Slide 2: Full-Screen Stage Photo (Revealed on mobile when swiped/scrolled to the right) */}
+          <div
+            className={`hero-mobile-photo-slide ${isPhotoFit ? 'photo-fit-contain' : ''}`}
+            onClick={() => setIsPhotoFit(!isPhotoFit)}
+            aria-label="Mr. Prashant Ashok Bachhav Stage Photo"
+          >
+            <div className="photo-return-hint" aria-hidden="true">
+              <span>← Swipe left for bio</span>
+            </div>
+            <img
+              src="/hero-bg.png"
+              alt="Mr. Prashant Ashok Bachhav speaking at ICMAI on stage"
+              className="hero-mobile-fullscreen-photo"
+              loading="eager"
+            />
+            <div className="photo-caption-pill">
+              <span>{isPhotoFit ? "Full Stage View • Tap for Portrait" : "Mr. Prashant Ashok Bachhav • Tap for Full Stage"}</span>
             </div>
           </div>
         </div>
