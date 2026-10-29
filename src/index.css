@@ -1,0 +1,133 @@
+/* ==========================================================================
+   EXECUTIVE PORTFOLIO DESIGN SYSTEM — MR. PRASHANT ASHOK BACHHAV
+   Theme: Executive Slate & Warm Sand Gold (Photo-Matched, Zero Maroon)
+   ========================================================================== */
+
+:root {
+  /* Core Charcoal, Obsidian & Warm Sand Palette (Photo-Matched, Zero Blue) */
+  --color-slate: #15171C;
+  --color-slate-dark: #0E1013;
+  --color-slate-deep: #08090A;
+  --color-slate-light: #20232A;
+  --color-slate-subtle: rgba(22, 24, 29, 0.06);
+  --color-slate-border: rgba(255, 255, 255, 0.1);
+
+  --color-sand: #D4A373;
+  --color-sand-light: #E5BE97;
+  --color-sand-dark: #B6814E;
+  --color-sand-subtle: rgba(212, 163, 115, 0.14);
+  --color-sand-border: rgba(212, 163, 115, 0.38);
+  --color-sand-glow: rgba(212, 163, 115, 0.28);
+
+  /* Legacy variable mapping to ensure 100% theme consistency */
+  --color-maroon: #15171C;
+  --color-maroon-dark: #0E1013;
+  --color-maroon-deep: #08090A;
+  --color-maroon-light: #20232A;
+  --color-maroon-subtle: rgba(22, 24, 29, 0.06);
+  --color-maroon-border: rgba(255, 255, 255, 0.1);
+
+  --color-gold: #D4A373;
+  --color-gold-light: #E5BE97;
+  --color-gold-dark: #B6814E;
+  --color-gold-subtle: rgba(212, 163, 115, 0.14);
+  --color-gold-border: rgba(212, 163, 115, 0.38);
+  --color-gold-glow: rgba(212, 163, 115, 0.28);
+
+  --color-ivory: #F8FAFC;
+  --color-ivory-warm: #F1F5F9;
+  --color-ivory-card: #FFFFFF;
+
+  --color-charcoal: #15171C;
+  --color-charcoal-muted: #7E8594;
+  --color-charcoal-light: #A2A9B8;
+
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-brand: 'Cinzel', 'Playfair Display', serif;
+  --font-sans: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Elevations & Shadows */
+  --shadow-sm: 0 2px 8px rgba(14, 16, 19, 0.04);
+  --shadow-md: 0 8px 24px rgba(14, 16, 19, 0.08);
+  --shadow-lg: 0 16px 40px rgba(14, 16, 19, 0.12);
+  --shadow-xl: 0 24px 60px rgba(14, 16, 19, 0.18);
+  --shadow-gold: 0 10px 30px rgba(212, 163, 115, 0.3);
+  --shadow-navbar: 0 4px 20px rgba(8, 9, 10, 0.35);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Navbar Dimensions */
+  --navbar-height: 94px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #0E1013;
+  color: #E6E8EC;
+  line-height: 1.68;
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0B0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252830;
+  border-radius: 4px;
+  border: 2px solid #0A0B0D;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sand);
+}
+
+/* Selection Highlight */
+::selection {
+  background: #252830;
+  color: var(--color-white);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
