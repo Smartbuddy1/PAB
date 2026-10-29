@@ -1117,29 +1117,25 @@ export default function App() {
         <div className="hero-container">
           {/* LEFT SIDE — TEXT CONTENT OVERLAID ON IMAGE */}
           <div className="hero-text-column">
-            {/* Main heading */}
-            <h1 className="hero-main-heading">
+            {/* Desktop Elements — 100% Intact */}
+            <h1 className="hero-main-heading hero-desktop-only">
               Mr. Prashant Ashok Bachhav
             </h1>
 
-            {/* Introductory label below name */}
-            <div className="hero-intro-label">
+            <div className="hero-intro-label hero-desktop-only">
               <span className="label-emblem">✦</span>
               <span className="label-text">DIRECTOR • INNOVATOR • ENTREPRENEUR</span>
             </div>
 
-            {/* Professional tagline */}
-            <p className="hero-tagline">
+            <p className="hero-tagline hero-desktop-only">
               “Building Institutions. Engineering Innovation.”
             </p>
 
-            {/* Introduction paragraph */}
-            <p className="hero-introduction">
+            <p className="hero-introduction hero-desktop-only">
               Mr. Prashant Ashok Bachhav is the Director of Aarya Innovtech Pvt. Ltd., Nashik. His professional background includes institutional leadership, innovative product design, research and development, sales and marketing, and overall company operations.
             </p>
 
-            {/* Professional highlights cards */}
-            <div className="hero-highlights-grid">
+            <div className="hero-highlights-grid hero-desktop-only">
               {HERO_HIGHLIGHTS.map((item) => (
                 <div key={item.id} className="highlight-card">
                   <div className="highlight-icon-wrapper">
@@ -1153,8 +1149,7 @@ export default function App() {
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="hero-cta-group">
+            <div className="hero-cta-group hero-desktop-only">
               <a
                 href="#innovation"
                 className="btn-primary-gold"
@@ -1179,26 +1174,81 @@ export default function App() {
               </a>
             </div>
 
-            {/* Mobile Swipe Hint */}
-            <div className="hero-mobile-swipe-hint" aria-hidden="true">
-              <span>Swipe right for stage photo</span>
-              <span className="swipe-arrow">→</span>
-            </div>
-          </div>
+            {/* Mobile View — Modeled Exactly After Reference Design (Kartik Bahadure layout) */}
+            <div className="hero-mobile-view" aria-label="Executive Profile Mobile View">
+              {/* 1. Category / Eyebrow (Warm Coral/Gold) */}
+              <div className="hero-mob-eyebrow">
+                PRASHANT ASHOK BACHHAV • DIRECTOR &amp; INNOVATOR
+              </div>
 
-          {/* Slide 2: Full-Screen Stage Photo (Revealed on mobile when swiped/scrolled to the right) */}
-          <div className="hero-mobile-photo-slide" aria-label="Mr. Prashant Ashok Bachhav Stage Photo">
-            <div className="photo-return-hint" aria-hidden="true">
-              <span>← Swipe left for bio</span>
-            </div>
-            <img
-              src="/hero-bg.png"
-              alt="Mr. Prashant Ashok Bachhav speaking at ICMAI on stage"
-              className="hero-mobile-fullscreen-photo"
-              loading="eager"
-            />
-            <div className="photo-caption-pill">
-              <span>Mr. Prashant Ashok Bachhav • Director, Aarya Innovtech</span>
+              {/* 2. Main Headline (Large White) */}
+              <h1 className="hero-mob-headline">
+                Building Institutions. Engineering Innovation.
+              </h1>
+
+              {/* 3. Sub-specialties / Roles (Warm Coral/Gold) */}
+              <div className="hero-mob-roles">
+                DIRECTOR • INNOVATOR • ENTREPRENEUR • ACADEMICIAN
+              </div>
+
+              {/* 4. Bio Paragraph */}
+              <p className="hero-mob-bio">
+                Mr. Prashant Ashok Bachhav is the Director of Aarya Innovtech Pvt. Ltd., Nashik. His professional background includes institutional leadership, innovative product design, research and development, sales and marketing, and overall company operations.
+              </p>
+
+              {/* 5. Touch Action Buttons (Dark Glass Pill Buttons) */}
+              <div className="hero-mob-actions">
+                <a
+                  href="#innovation"
+                  className="mob-pill-btn mob-pill-primary"
+                  onClick={(e) => scrollToSection(e, 'innovation')}
+                >
+                  <span>Explore Innovations</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+
+                <a
+                  href="#contact"
+                  className="mob-pill-btn mob-pill-secondary"
+                  onClick={(e) => scrollToSection(e, 'contact')}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span>Let's Connect</span>
+                </a>
+              </div>
+
+              {/* 6. Tagline / Domain Ribbon (Warm Coral/Gold) */}
+              <div className="hero-mob-ribbon">
+                INNOVATION • R&amp;D • LEADERSHIP • INSTRUMENTATION • IOT
+              </div>
+
+              {/* 7. Bottom Capsule Highlights Card */}
+              <div className="hero-mob-capsule">
+                <div className="mob-capsule-col">
+                  <span className="mob-capsule-title">ENGINEERING</span>
+                  <span className="mob-capsule-sub">B.E. Instrumentation</span>
+                </div>
+                <div className="mob-capsule-divider"></div>
+                <div className="mob-capsule-col">
+                  <span className="mob-capsule-title">ACADEMIC</span>
+                  <span className="mob-capsule-sub">5+ Yrs Asst. Prof</span>
+                </div>
+                <div className="mob-capsule-divider"></div>
+                <div className="mob-capsule-col">
+                  <span className="mob-capsule-title">LEADERSHIP</span>
+                  <span className="mob-capsule-sub">15+ Yrs Exec. Dir</span>
+                </div>
+                <div className="mob-capsule-divider"></div>
+                <div className="mob-capsule-col">
+                  <span className="mob-capsule-title">AARYA</span>
+                  <span className="mob-capsule-sub">Director (R&amp;D)</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
